@@ -11,7 +11,6 @@ import JudgeViewProvider from './webview/JudgeView';
 import { getRetainWebviewContextPref } from './preferences';
 import TelemetryReporter from '@vscode/extension-telemetry';
 import config from './config';
-import telmetry from './telmetry';
 
 let judgeViewProvider: JudgeViewProvider;
 
@@ -67,8 +66,6 @@ const registerCommands = (context: vscode.ExtensionContext) => {
     context.subscriptions.push(disposable4);
     globalThis.reporter = new TelemetryReporter(config.telemetryKey);
     context.subscriptions.push(globalThis.reporter);
-
-    globalThis.reporter.sendTelemetryEvent(telmetry.EXTENSION_ACTIVATED);
 };
 
 // This method is called when the extension is activated
